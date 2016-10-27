@@ -1,10 +1,10 @@
 {
   "name": "angular-expander",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "Generate an SEO-friendly version of an Angular 1 template file",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/amelki/angular-expander.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amelki/angular-expander.git"
   },
   "bugs": {
     "email": "antoine@onemore.company"
