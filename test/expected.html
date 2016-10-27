@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<body>
+		<noop ng-show="aDynamicCondition"><header>
+		<nav>
+			<span>
+				<a href="https://foo.com">This link should be at the beginning of the header</a>
+			</span>
+			<!-- This repeat construct will be expanded (assuming 'headerLinks' is present in the $scope) -->
+			<span><span style="display: none">{{i = 0; nav = headerLinks[i]; $index = 0 ;""}}</span>
+				<a ng-href="https://sende.rs" target="{{nav.target}}">Senders</a>
+			</span><span><span style="display: none">{{i = 1; nav = headerLinks[i]; $index = 1 ;""}}</span>
+				<a ng-href="https://trackbuster.com" target="">Trackbuster</a>
+			</span><span><span style="display: none">{{i = 2; nav = headerLinks[i]; $index = 2 ;""}}</span>
+				<a ng-href="https://onemore.company" target="_blank">One More Company</a>
+			</span>
+			<!-- This repeat construct will not be expanded (assuming 'dynamicHeaderLinks' is not present in the $scope) -->
+			<span ng-repeat="nav in dynamicHeaderLinks">
+				<a ng-href="{{nav.url}}" target="{{nav.target}}">{{nav.name}}</a>
+			</span>
+			<span>
+				<a href="https://foo.com">This link should be at the end of the header</a>
+			</span>
+		</nav>
+</header>
+</noop>
+		<ng-view><div>
+	<h1>This is the title of my page</h1>
+	<div>This is the body of my page.</div>
+	<div>{{someDynamicContent}}</div>
+</div>
+</ng-view>
+	</body>
+</html>

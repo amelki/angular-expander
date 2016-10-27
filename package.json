@@ -1,0 +1,26 @@
+{
+  "name": "angular-expander",
+  "version": "3.0.8",
+  "description": "Generate an SEO-friendly version of an Angular 1 template file",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "angular",
+    "template",
+    "seo",
+    "spa"
+  ],
+  "author": "Antoine Melki",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "debug": "^2.2.0",
+    "sync-request": "^3.0.1"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^2.0.1",
+    "request": "^2.75.0"
+  }
+}

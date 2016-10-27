@@ -1,0 +1,18 @@
+<header>
+		<nav>
+			<span>
+				<a href="https://foo.com">This link should be at the beginning of the header</a>
+			</span>
+			<!-- This repeat construct will be expanded (assuming 'headerLinks' is present in the $scope) -->
+			<span ng-repeat="nav in headerLinks">
+				<a ng-href="{{nav.url}}" target="{{nav.target}}">{{nav.name}}</a>
+			</span>
+			<!-- This repeat construct will not be expanded (assuming 'dynamicHeaderLinks' is not present in the $scope) -->
+			<span ng-repeat="nav in dynamicHeaderLinks">
+				<a ng-href="{{nav.url}}" target="{{nav.target}}">{{nav.name}}</a>
+			</span>
+			<span>
+				<a href="https://foo.com">This link should be at the end of the header</a>
+			</span>
+		</nav>
+</header>
