@@ -85,7 +85,7 @@ inserted is only for SEO purpose.
 
 Any expression inside double curly-braces will be evaluated against the `$scope` (possibly enriched if a repeat directive
 is being expanded). If that expression can be interpreted (no exception thrown, no `undefined` value), it will replace
-the content if the curly-braces.
+the content of the curly-braces.
 
 ## Limitations
 
