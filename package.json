@@ -2,6 +2,13 @@
   "name": "angular-expander",
   "version": "3.0.8",
   "description": "Generate an SEO-friendly version of an Angular 1 template file",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/amelki/angular-expander.git"
+  },
+  "bugs": {
+    "email": "antoine@onemore.company"
+  },
   "main": "index.js",
   "scripts": {
     "test": "node test/test.js"
@@ -17,10 +24,9 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "debug": "^2.2.0",
-    "sync-request": "^3.0.1"
+    "request": "^2.75.0"
   },
   "devDependencies": {
-    "jsdoc-to-markdown": "^2.0.1",
-    "request": "^2.75.0"
+    "jsdoc-to-markdown": "^2.0.1"
   }
 }
