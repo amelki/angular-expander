@@ -239,7 +239,8 @@ function instantiate(html, $scope, options, debugInfo) {
 					var value = vm.runInContext(expr, templateContext);
 					if (value) {
 						return value;
-					} else if (typeof value === 'undefined' || value === null) {
+					} else {
+//					} else if (typeof value === 'undefined' || value === null) {
 						return "{{" + expr + "}}";
 					}
 				} catch (exception) {
