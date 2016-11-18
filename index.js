@@ -40,7 +40,7 @@ exports.expand = function (mainTemplate, options) {
 				return "{{" + $1 + "}}";
 			});
 		});
-}
+};
 
 function load(options, templatePath) {
 	return new Promise(function (resolve, reject) {
@@ -158,8 +158,14 @@ function instantiate(html, $scope, options, debugInfo) {
 	var binds = $("*[ng-bind]");
 	binds.each(function (i, elem) {
 		var expr = $(this).attr("ng-bind");
-		$(this).html(vm.runInContext(expr, templateContext));
-		$(this).removeAttr("ng-bind");
+		try {
+			var bindHtmlValue = vm.runInContext(expr, templateContext);
+			$(this).html(bindHtmlValue);
+			$(this).removeAttr("ng-bind");
+		} catch (exception) {
+			// Do nothing
+			debug("Doing nothing: " + exception);
+		}
 	});
 	// ng-bind-html
 	var bindHtmls = $("*[ng-bind-html]");
