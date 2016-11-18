@@ -160,8 +160,10 @@ function instantiate(html, $scope, options, debugInfo) {
 		var expr = $(this).attr("ng-bind");
 		try {
 			var bindHtmlValue = vm.runInContext(expr, templateContext);
-			$(this).html(bindHtmlValue);
-			$(this).removeAttr("ng-bind");
+			if (bindHtmlValue) {
+				$(this).html(bindHtmlValue);
+				$(this).removeAttr("ng-bind");
+			}
 		} catch (exception) {
 			// Do nothing
 			debug("Doing nothing: " + exception);
@@ -173,8 +175,10 @@ function instantiate(html, $scope, options, debugInfo) {
 		var expr = $(this).attr("ng-bind-html");
 		try {
 			var bindHtmlValue = vm.runInContext(expr, templateContext);
-			$(this).html(bindHtmlValue);
-			$(this).removeAttr("ng-bind-html");
+			if (bindHtmlValue) {
+				$(this).html(bindHtmlValue);
+				$(this).removeAttr("ng-bind-html");
+			}
 		} catch (exception) {
 			// Do nothing
 			debug("Doing nothing: " + exception);
@@ -240,8 +244,7 @@ function instantiate(html, $scope, options, debugInfo) {
 					if (value) {
 						return value;
 					} else {
-//					} else if (typeof value === 'undefined' || value === null) {
-						return "{{" + expr + "}}";
+						return "{{" + expr + "}}"; // undefined, null, empty string => keep things as is
 					}
 				} catch (exception) {
 					debug("Expression cannot be interpreted against context. We leave it as is " + exception);
