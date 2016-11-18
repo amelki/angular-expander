@@ -25,13 +25,17 @@ const path = require('path');
  * @returns {Promise} HTML text of the expanded template
  */
 exports.expand = function (mainTemplate, options) {
+	console.time('loadMainTemplate');
 	return load(options, mainTemplate)
 		.then(html => {
+			console.timeEnd('loadMainTemplate');
+			console.time('instantiate');
 			var $scope = options ? (options.scope || {}) : {};
 			var debugInfo = { path: mainTemplate, indent: 0 };
 			return instantiate(html, $scope, options, debugInfo);
 		})
 		.then(output => {
+			console.timeEnd('instantiate');
 			return output.replace(/\[\[(.*?)]]/g, function (match, $1) {
 				return "{{" + $1 + "}}";
 			});
