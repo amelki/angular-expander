@@ -49,10 +49,12 @@ function load(options, templatePath) {
 				templatePath = templatePath.substr(1);
 			}
 			var url = options.baseUrl + "/" + templatePath;
+			console.time(url);
 			request(url, function(error, response, body) {
 				if (error) {
 					reject(error);
 				} else {
+					console.timeEnd(url);
 					resolve(body);
 				}
 			})
@@ -61,10 +63,12 @@ function load(options, templatePath) {
 			if (options && options.srcDir) {
 				file = path.normalize(options.srcDir + "/" + templatePath);
 			}
+			console.time(file);
 			fs.readFile(file, 'utf8', function (error, body) {
 				if (error) {
 					reject(error);
 				} else {
+					console.timeEnd(file);
 					resolve(body);
 				}
 			});
