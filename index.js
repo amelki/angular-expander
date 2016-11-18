@@ -241,8 +241,6 @@ function instantiate(html, $scope, options, debugInfo) {
 						return value;
 					} else if (typeof value === 'undefined' || value === null) {
 						return "{{" + expr + "}}";
-					} else {
-						return "";
 					}
 				} catch (exception) {
 					debug("Expression cannot be interpreted against context. We leave it as is " + exception);
