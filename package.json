@@ -1,6 +1,6 @@
 {
   "name": "angular-expander",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Generate an SEO-friendly version of an Angular 1 template file",
   "repository": {
     "type": "git",
